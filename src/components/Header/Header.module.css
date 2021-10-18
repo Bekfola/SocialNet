@@ -1,0 +1,17 @@
+.header {
+  grid-area: h;
+  background-color: #7FAB8D;
+}
+
+.header img {
+  width: 60px;
+}
+
+.loginBlock {
+  float: right;
+}
+
+.loginBlock a {
+  color: white;
+  font-weight: bold;
+}

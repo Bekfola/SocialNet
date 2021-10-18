@@ -1,0 +1,57 @@
+.userPhoto {
+    width: 100px;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.page {
+    cursor: pointer;
+}
+
+.leftSide {
+    display: inline-block;
+    width: 110px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.rightSide {
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: top;
+    width: 600px;
+}
+
+.user:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.user {    
+    border-style: solid;
+    border-color: #7FAB8D;
+    border-radius: 5px;
+    padding: 5px;
+   
+}
+
+.uName {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.geo {
+    /* display: inline-block;
+    text-align: right;
+    align-self: right; */
+}
+
+.superRightSide {
+    vertical-align: top;
+    font-size: 12px;
+    display: inline-block;
+    color: grey;
+    font-style: italic;
+}
