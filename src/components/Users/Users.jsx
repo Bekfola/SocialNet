@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { usersAPI } from '../../api/api';
 import userPhoto from '../../assets/images/user-icon.jpg';
 import styles from './users.module.css';
 
@@ -37,38 +38,45 @@ return (
                     {u.followed 
                         ? <button disabled={props.followingInProgress.some(id => id === u.id) } onClick={() => {
                             
-                            props.toggleFollowingProgress(true, u.id);
+                            props.unfollow(u.id);
+                            // .toggleFollowingProgress(true, u.id);
 
-                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                                withCredentials: true,
-                                headers: {
-                                    "API-KEY" : "e67da7e5-9450-4b5e-b59e-639ce44286a4"
-                                }
-                            })
-                                .then(response => {
-                                    if (response.data.resultCode == 0) {
-                                        props.unfollow(u.id);
-                                    }
-                                    props.toggleFollowingProgress(false, u.id);
-                                })
+                            // usersAPI.unfollow(u.id)
+
+                            // // axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                            // //     withCredentials: true,
+                            // //     headers: {
+                            // //         "API-KEY" : "e67da7e5-9450-4b5e-b59e-639ce44286a4"
+                            // //     }
+                            // // })
+                            //     .then(response => {
+                            //         if (response.data.resultCode == 0) {
+                            //             props.unfollow(u.id);
+                            //         }
+                            //         props.toggleFollowingProgress(false, u.id);
+                            //     })
 
                             
                         }}>Unfollow</button> 
                         : <button disabled={props.followingInProgress.some(id => id === u.id) } onClick={() => {
-                            props.toggleFollowingProgress(true, u.id);
+                            props.follow(u.id);
+                            
+                            // .toggleFollowingProgress(true, u.id);
 
-                            axios.post('https://social-network.samuraijs.com/api/1.0/follow/' + u.id, {}, {
-                                withCredentials: true,
-                                headers: {
-                                    "API-KEY" : "e67da7e5-9450-4b5e-b59e-639ce44286a4"
-                                }
-                            })
-                                .then(response => {
-                                    if (response.data.resultCode == 0) {
-                                        props.follow(u.id);
-                                    }
-                                    props.toggleFollowingProgress(false, u.id);
-                                });
+                            // usersAPI.follow(u.id)
+
+                            // // axios.post('https://social-network.samuraijs.com/api/1.0/follow/' + u.id, {}, {
+                            // //     withCredentials: true,
+                            // //     headers: {
+                            // //         "API-KEY" : "e67da7e5-9450-4b5e-b59e-639ce44286a4"
+                            // //     }
+                            // // })
+                            //     .then(response => {
+                            //         if (response.data.resultCode == 0) {
+                            //             props.follow(u.id);
+                            //         }
+                            //         props.toggleFollowingProgress(false, u.id);
+                            //     });
 
                             
                         }}>Follow</button>}
